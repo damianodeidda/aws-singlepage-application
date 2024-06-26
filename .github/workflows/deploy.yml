@@ -25,7 +25,7 @@ jobs:
           aws-region: eu-central-1
 
       - name: Deploy to S3
-        run: aws s3 sync ./out s3://aws-singlepage-application
+        run: aws s3 sync ./build s3://aws-singlepage-application  --delete
 
       - name: Invalidate CloudFront Cache
         run: aws cloudfront create-invalidation --distribution-id E3DJDIU48O8D0I --paths "/*"
